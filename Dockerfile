@@ -1,0 +1,12 @@
+FROM python:3.12-slim
+WORKDIR /app
+COPY datamigration.py /app/
+RUN pip install boto3
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jre-headless && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir pyspark==3.5.0
+
+CMD ["python", "datamigration.py"]
+
