@@ -25,7 +25,7 @@ def lambda_handler():
             client.delete_object(Bucket=Source_bucket, Key=Source_key)
             print(f"File {filename} copied successfully to {destination_key}")  
     return "Code ok"
-if __name=="__main__":
+if __name__=="__main__":
 	print("datamigration image processing.....")
 	lambda_handler()
 	spark = SparkSession.builder \
