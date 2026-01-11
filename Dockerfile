@@ -8,5 +8,4 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 RUN pip install --no-cache-dir pyspark==3.5.0
 
-CMD ["python", "datamigration.py"]
-
+CMD ["python", "spark_test.py"]
