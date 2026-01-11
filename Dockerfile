@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 WORKDIR /app
-COPY datamigration.py /app/
+COPY . /app/
 RUN pip install boto3
 RUN apt-get update && \
     apt-get install -y openjdk-17-jre-headless && \
@@ -9,3 +9,4 @@ RUN apt-get update && \
 RUN pip install --no-cache-dir pyspark==3.5.0
 
 CMD ["python", "spark_test.py"]
+
