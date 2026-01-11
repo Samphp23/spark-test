@@ -1,5 +1,6 @@
 import json
 import boto3
+from pyspark.sql import SparkSession
 
 client = boto3.client("s3")
 Source_bucket = "source-s3-bucket-14-11"
@@ -27,3 +28,10 @@ def lambda_handler():
 if __name=="__main__":
 	print("datamigration image processing.....")
 	lambda_handler()
+	spark = SparkSession.builder \
+	    .appName("Docker PySpark Job") \
+	    .getOrCreate()
+	data = [("Samir", 100), ("Rahul", 200)]
+	df = spark.createDataFrame(data, ["name", "score"])
+	df.show()
+	spark.stop()
