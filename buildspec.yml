@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    IMAGE_REPO_NAME: "firstimage"
+    IMAGE_REPO_NAME: "spark_test"
     REGION: "ap-south-1"
 
 phases:
@@ -31,4 +31,5 @@ phases:
 
 artifacts:
   files:
+
     - '**/*'
