@@ -1,12 +1,12 @@
 FROM python:3.12-slim
 WORKDIR /app
 COPY . /app/
-RUN pip install boto3
 RUN apt-get update && \
-    apt-get install -y openjdk-17-jre-headless && \
+    apt-get install -y openjdk-21-jre-headless && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN pip install --no-cache-dir pyspark==3.5.0
+RUN pip install --no-cache-dir pyspark==3.5.0 boto3
 
 CMD ["python", "spark_test.py"]
+
 
